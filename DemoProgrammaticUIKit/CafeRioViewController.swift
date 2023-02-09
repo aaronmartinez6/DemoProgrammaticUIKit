@@ -13,6 +13,7 @@ class CafeRioViewController: UIViewController {
         let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
         return view
     }()
     
@@ -80,8 +81,38 @@ class CafeRioViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Cafe Rio Rewards"
+        navigationController?.navigationBar.backgroundColor = .systemGray5
+        navigationController?.view.backgroundColor = .systemGray5
+        navigationController?.navigationBar.isTranslucent = false
         
-        view.backgroundColor = .red
+        view.backgroundColor = .systemGray6
+        
+        addSubviews()
+        addConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // These need to be set after the layout engine has drawn the views on screen. Otherwise, the frames will not have a value yet.
+        pointsSection.layer.cornerRadius = 6
+        borderView.layer.cornerRadius = borderView.frame.width / 2
+        foodImageView.layer.cornerRadius = foodImageView.frame.width / 2
+        earnButton.layer.cornerRadius = earnButton.frame.height / 2
+        redeemButton.layer.cornerRadius = redeemButton.frame.height / 2
+    }
+    
+    @objc func earnButtonTapped() {
+        // Example of `pushing` onto the navigation stack
+        navigationController?.pushViewController(EarnViewController(), animated: true)
+    }
+    
+    @objc func redeemButtonTapped() {
+        // Example of `presenting` a modal
+        present(RedeemViewController(), animated: true)
+    }
+    
+    private func addSubviews() {
         view.addSubview(pointsSection)
         
         // Graffiti section
@@ -93,7 +124,9 @@ class CafeRioViewController: UIViewController {
         pointsButtonsBoxView.addSubview(pointsButtonsStackView)
         pointsButtonsStackView.addArrangedSubview(earnButton)
         pointsButtonsStackView.addArrangedSubview(redeemButton)
-        
+    }
+    
+    private func addConstraints() {
         NSLayoutConstraint.activate([
             pointsSection.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             pointsSection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -121,28 +154,8 @@ class CafeRioViewController: UIViewController {
             foodImageView.centerXAnchor.constraint(equalTo: borderView.centerXAnchor),
             
             pointsButtonsStackView.leadingAnchor.constraint(equalTo: pointsButtonsBoxView.leadingAnchor, constant: 12),
-            pointsButtonsStackView.topAnchor.constraint(equalTo: pointsButtonsBoxView.topAnchor, constant: 4),
+            pointsButtonsStackView.topAnchor.constraint(equalTo: pointsButtonsBoxView.topAnchor, constant: 8),
             pointsButtonsStackView.trailingAnchor.constraint(equalTo: pointsButtonsBoxView.trailingAnchor, constant: -12),
         ])
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // These need to be set after the layout engine has drawn the views on screen. Otherwise, the frame will not have a value yet.
-        borderView.layer.cornerRadius = borderView.frame.width / 2
-        foodImageView.layer.cornerRadius = foodImageView.frame.width / 2
-        earnButton.layer.cornerRadius = earnButton.frame.height / 2
-        redeemButton.layer.cornerRadius = redeemButton.frame.height / 2
-    }
-    
-    @objc func earnButtonTapped() {
-        // Example of `pushing` onto the navigation stack
-        navigationController?.pushViewController(EarnViewController(), animated: true)
-    }
-    
-    @objc func redeemButtonTapped() {
-        // Example of `presenting` a modal
-        present(RedeemViewController(), animated: true)
     }
 }
