@@ -11,15 +11,17 @@ class CafeRioViewController: UIViewController {
     
     lazy var pointsSection: UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var graffatiView: UIView = {
-        let view = UIView()
+    lazy var graffatiView: UIImageView = {
+        let view = UIImageView()
         view.backgroundColor = .gray
+        view.alpha = 0.3
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.image = UIImage(named: "graffiti")
         return view
     }()
     
@@ -84,7 +86,7 @@ class CafeRioViewController: UIViewController {
         
         // Graffiti section
         pointsSection.addSubview(graffatiView)
-        graffatiView.addSubview(borderView)
+        pointsSection.addSubview(borderView)
         borderView.addSubview(foodImageView)
         // Points Buttons Box
         pointsSection.addSubview(pointsButtonsBoxView)
@@ -108,13 +110,13 @@ class CafeRioViewController: UIViewController {
             pointsButtonsBoxView.trailingAnchor.constraint(equalTo: pointsSection.trailingAnchor),
             pointsButtonsBoxView.heightAnchor.constraint(equalTo: pointsSection.heightAnchor, multiplier: 0.25),
             
-            borderView.heightAnchor.constraint(equalTo: graffatiView.heightAnchor, multiplier: 0.85),
-            borderView.widthAnchor.constraint(equalTo: graffatiView.heightAnchor, multiplier: 0.85),
+            borderView.heightAnchor.constraint(equalTo: graffatiView.heightAnchor, multiplier: 0.9),
+            borderView.widthAnchor.constraint(equalTo: graffatiView.heightAnchor, multiplier: 0.9),
             borderView.centerYAnchor.constraint(equalTo: graffatiView.centerYAnchor),
             borderView.centerXAnchor.constraint(equalTo: graffatiView.centerXAnchor),
             
-            foodImageView.heightAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: 0.9),
-            foodImageView.widthAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: 0.9),
+            foodImageView.heightAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: 0.95),
+            foodImageView.widthAnchor.constraint(equalTo: borderView.heightAnchor, multiplier: 0.95),
             foodImageView.centerYAnchor.constraint(equalTo: borderView.centerYAnchor),
             foodImageView.centerXAnchor.constraint(equalTo: borderView.centerXAnchor),
             
@@ -130,6 +132,8 @@ class CafeRioViewController: UIViewController {
         // These need to be set after the layout engine has drawn the views on screen. Otherwise, the frame will not have a value yet.
         borderView.layer.cornerRadius = borderView.frame.width / 2
         foodImageView.layer.cornerRadius = foodImageView.frame.width / 2
+        earnButton.layer.cornerRadius = earnButton.frame.height / 2
+        redeemButton.layer.cornerRadius = redeemButton.frame.height / 2
     }
     
     @objc func earnButtonTapped() {

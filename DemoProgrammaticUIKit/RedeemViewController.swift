@@ -11,8 +11,6 @@ class RedeemViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "Redeem"
         
         view.backgroundColor = .systemYellow
     }
