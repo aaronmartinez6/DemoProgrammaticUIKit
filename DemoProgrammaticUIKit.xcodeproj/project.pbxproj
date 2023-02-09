@@ -12,6 +12,8 @@
 		03CE0774299437ED00D16207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03CE0773299437ED00D16207 /* Assets.xcassets */; };
 		03CE0777299437ED00D16207 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03CE0775299437ED00D16207 /* LaunchScreen.storyboard */; };
 		03CE078129945B4500D16207 /* CafeRioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CE078029945B4500D16207 /* CafeRioViewController.swift */; };
+		03CE07832994719D00D16207 /* EarnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CE07822994719D00D16207 /* EarnViewController.swift */; };
+		03CE0785299471B700D16207 /* RedeemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CE0784299471B700D16207 /* RedeemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		03CE0776299437ED00D16207 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03CE0778299437ED00D16207 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03CE078029945B4500D16207 /* CafeRioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeRioViewController.swift; sourceTree = "<group>"; };
+		03CE07822994719D00D16207 /* EarnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnViewController.swift; sourceTree = "<group>"; };
+		03CE0784299471B700D16207 /* RedeemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedeemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				03CE0775299437ED00D16207 /* LaunchScreen.storyboard */,
 				03CE0778299437ED00D16207 /* Info.plist */,
 				03CE078029945B4500D16207 /* CafeRioViewController.swift */,
+				03CE07822994719D00D16207 /* EarnViewController.swift */,
+				03CE0784299471B700D16207 /* RedeemViewController.swift */,
 			);
 			path = DemoProgrammaticUIKit;
 			sourceTree = "<group>";
@@ -134,6 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CE0785299471B700D16207 /* RedeemViewController.swift in Sources */,
+				03CE07832994719D00D16207 /* EarnViewController.swift in Sources */,
 				03CE076B299437EB00D16207 /* AppDelegate.swift in Sources */,
 				03CE078129945B4500D16207 /* CafeRioViewController.swift in Sources */,
 				03CE076D299437EB00D16207 /* SceneDelegate.swift in Sources */,
