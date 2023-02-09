@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         let cafeRioViewController = CafeRioViewController()
-        window.rootViewController = cafeRioViewController
+        let navigationController = UINavigationController(rootViewController: cafeRioViewController)
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         self.window = window
     }
